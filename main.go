@@ -49,6 +49,20 @@ func returnErr(err **multierror.Error, target *error) {
 	*target = (*err).ErrorOrNil()
 }
 
+func bulp1() (err error) {
+	defer appendDeferredErr2(&err, ErrFirst)
+	return ErrThird
+}
+
+func bulp2() (err error) {
+	defer appendDeferredErr2(&err, nil)
+	return nil
+}
+
+func appendDeferredErr2(target *error, err error) {
+	*target = multierror.Append(*target, err).ErrorOrNil()
+}
+
 var ErrFirst error = errors.New("first")
 
 type SecondErr struct {

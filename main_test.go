@@ -39,3 +39,18 @@ func TestLupz(t *testing.T) {
 	assert.ErrorIs(err, ErrFirst)
 	assert.ErrorIs(err, ErrThird)
 }
+
+func TestBulp1(t *testing.T) {
+	assert := assert.New(t)
+	err := bulp1()
+	assert.Error(err)
+	assert.ErrorIs(err, ErrFirst)
+	assert.ErrorIs(err, ErrThird)
+}
+
+func TestBulp2(t *testing.T) {
+	assert := assert.New(t)
+	err := bulp2()
+	assert.NoError(err)
+	assert.Nil(err)
+}

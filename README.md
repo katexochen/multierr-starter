@@ -2,7 +2,7 @@
 
 ## Currently best: [`uber-go/muliterr`](https://github.com/uber-go/multierr)
 
-- Doesn't introduce a own error type
+- Doesn't introduce an own error type
 - Append (known syntax)
 - Convenience function for collection of deferred errors
 - Compatible with `errors.Is` and `errors.As`

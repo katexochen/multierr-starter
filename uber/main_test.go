@@ -3,7 +3,6 @@ package main
 import (
 	"testing"
 
-	"github.com/hashicorp/go-multierror"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -21,23 +20,8 @@ func TestFoo(t *testing.T) {
 func TestBar(t *testing.T) {
 	assert := assert.New(t)
 	err := bar()
-	assert.Error(err)
-	var multierr *multierror.Error
-	assert.ErrorAs(err, &multierr)
-}
-
-func TestBaz(t *testing.T) {
-	assert := assert.New(t)
-	err := baz()
 	assert.NoError(err)
-}
-
-func TestLupz(t *testing.T) {
-	assert := assert.New(t)
-	err := lupz()
-	assert.Error(err)
-	assert.ErrorIs(err, ErrFirst)
-	assert.ErrorIs(err, ErrThird)
+	assert.Nil(err)
 }
 
 func TestBulp1(t *testing.T) {
